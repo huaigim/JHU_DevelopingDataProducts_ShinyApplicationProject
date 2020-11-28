@@ -1,0 +1,49 @@
+---
+title: "Shiny Application Presentation"
+author: "Nicholas Ong"
+date: "11/28/2020"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Executive Summary
+
+This is an assignment by John Hopkins University's Coursera Course - Developing Data Products - Week 4 Project. Below is the requirement:
+
+- Write a shiny application with associated supporting documentation. The documentation should be thought of as whatever a user will need to get started using your application.
+- Deploy the application on Rstudio's shiny server
+- Share the application link by pasting it into the provided text box
+- Share your server.R and ui.R code on github
+
+## Data - mtcars
+
+The dataset is from standard R package - mtcars. For previewing the data, below is the code:
+
+```{r mtcars dataset, echo = T}
+head(mtcars)
+```
+
+- You could access the shiny webapp by clicking [here](https://huaigim.shinyapps.io/ShinyApplicationProject/).
+- If you want to find out more information of the server.R and ui.R code, you could also visit my github repository [here](https://github.com/huaigim/JHU_DevelopingDataProducts_ShinyApplicationProject).
+
+## Machine Learning Algorithm
+
+Linear model is used to run the machine learning algorithm, to predict mileage per gallon based on variables selected by end-user.
+- Below is an illustration using 'No. of cylinders' variable
+- The output/ result will be stored in a variable called fit
+```{r ml algo, echo = T}
+fit <- lm(mpg ~ cyl, mtcars)
+```
+
+## Result
+
+After running the model, the fit result and plot will be shown to the end-user
+```{r result, echo = T}
+with(mtcars, {plot(mpg ~ cyl)
+        abline(fit, col = 2)})
+fit
+```
+
